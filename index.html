@@ -2,314 +2,455 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bime | Boutique Feminina</title>
-  <meta name="description" content="Descubra a Bime, sua boutique de moda feminina.">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIME | Moda feminina</title>
 
-    body {
-      font-family: Georgia, serif;
-      background: #ffffff;
-      color: #252c35;
-    }
+<style>
+:root {
+  --azul: #dcecf4;
+  --azul-escuro: #66899c;
+  --texto: #303b40;
+  --fundo: #ffffff;
+}
 
-    header {
-      text-align: center;
-      padding: 25px 15px;
-      border-bottom: 1px solid #e8eff5;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .logo {
-      font-size: 39px;
-      letter-spacing: 7px;
-      color: #7da9c8;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
 
-    .subtitle {
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 4px;
-      margin-top: 7px;
-      color: #8496a5;
-    }
+header {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #edf1f3;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      padding: 17px 10px;
-      flex-wrap: wrap;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-    }
+.logo {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  letter-spacing: 7px;
+  color: #506f80;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #424c56;
-    }
+.header-link {
+  border: none;
+  background: none;
+  color: var(--texto);
+  font-size: 13px;
+  cursor: pointer;
+}
 
-    .hero {
-      text-align: center;
-      padding: 55px 20px;
-      background: #edf5fa;
-    }
+.hero {
+  min-height: 470px;
+  background:
+    linear-gradient(rgba(20,30,35,.25), rgba(20,30,35,.25)),
+    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1600") center 35% / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
 
-    .hero h1 {
-      font-size: 32px;
-      font-weight: normal;
-      color: #456d8c;
-    }
+.hero h1 {
+  color: white;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(34px, 6vw, 62px);
+  text-shadow: 0 2px 12px #3338;
+}
 
-    .hero p {
-      margin-top: 13px;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-      color: #667887;
-    }
+.intro {
+  text-align: center;
+  padding: 55px 20px 25px;
+}
 
-    .catalogo {
-      padding: 35px 12px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.intro h2,
+.category-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: normal;
+}
 
-    .catalogo h2 {
-      text-align: center;
-      font-size: 25px;
-      font-weight: normal;
-      margin-bottom: 25px;
-    }
+.intro p {
+  margin-top: 12px;
+  color: #849198;
+  font-size: 13px;
+}
 
-    .categorias {
-      display: flex;
-      gap: 9px;
-      overflow-x: auto;
-      padding-bottom: 22px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.categories {
+  max-width: 1050px;
+  margin: 25px auto 75px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
 
-    .categorias button {
-      background: white;
-      border: 1px solid #c5dceb;
-      color: #547b98;
-      padding: 9px 15px;
-      border-radius: 25px;
-      font-size: 11px;
-      cursor: pointer;
-    }
+.category {
+  min-height: 110px;
+  border: 1px solid #e3edf2;
+  background: #f7fbfd;
+  color: #536f7e;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  cursor: pointer;
+  transition: .2s;
+}
 
-    .produtos {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 13px;
-    }
+.category:hover {
+  background: var(--azul);
+  border-color: #c5dce8;
+}
 
-    .produto {
-      cursor: pointer;
-      min-width: 0;
-    }
+footer {
+  padding: 30px 15px;
+  text-align: center;
+  border-top: 1px solid #edf1f3;
+  color: #91a0a7;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
 
-    .produto img {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      background: #edf2f5;
-    }
+.page {
+  display: none;
+  min-height: 65vh;
+  padding: 45px 7% 75px;
+}
 
-    .produto h3 {
-      font-size: 13px;
-      font-weight: normal;
-      margin-top: 9px;
-    }
+.page.active {
+  display: block;
+}
 
-    .produto p {
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      color: #6f91aa;
-      margin-top: 5px;
-    }
+.back {
+  border: none;
+  background: none;
+  color: var(--azul-escuro);
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 35px;
+}
 
-    .detalhes {
-      display: none;
-      padding: 30px 20px;
-      max-width: 650px;
-      margin: auto;
-      text-align: center;
-    }
+.category-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    .detalhes img {
-      width: 100%;
-      max-width: 350px;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-    }
+.category-heading p {
+  color: #91a0a7;
+  font-size: 13px;
+  margin-top: 10px;
+}
 
-    .detalhes h2 {
-      margin: 18px;
-      font-weight: normal;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px 18px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-    .detalhes p {
-      margin: 12px;
-      font-family: Arial, sans-serif;
-    }
+.product {
+  cursor: pointer;
+}
 
-    .reserva {
-      background: #dcecf6;
-      border: none;
-      padding: 14px 25px;
-      margin-top: 15px;
-      color: #345d7c;
-      cursor: pointer;
-    }
+.product-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(145deg, #f1f6f8, #e2edf2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #91aab6;
+  font-family: Georgia, serif;
+  font-size: 17px;
+}
 
-    .voltar {
-      display: block;
-      margin: 20px;
-      color: #547b98;
-      cursor: pointer;
-    }
+.product-info {
+  padding: 13px 2px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #edf5fa;
-      font-size: 12px;
-      color: #62798a;
-    }
+.product-info h3 {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: normal;
+  margin-bottom: 7px;
+}
 
-    @media (max-width: 480px) {
-      .produtos {
-        gap: 9px;
-      }
+.price {
+  font-size: 13px;
+  color: #718995;
+}
 
-      .produto h3 {
-        font-size: 11px;
-      }
+.product-detail {
+  max-width: 850px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
 
-      .categorias {
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-      }
-    }
-  </style>
+.detail-photo {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(145deg, #f1f6f8, #e2edf2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #91aab6;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.detail-info h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.detail-info p {
+  color: #849198;
+  line-height: 1.7;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.reserve {
+  margin-top: 20px;
+  width: 100%;
+  padding: 16px;
+  background: #dcecf4;
+  border: 1px solid #c9dfe9;
+  color: #496b7c;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.reserve:hover {
+  background: #cbdfe9;
+}
+
+.empty {
+  text-align: center;
+  color: #849198;
+  padding: 50px 15px;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: 390px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .category {
+    min-height: 95px;
+    font-size: 19px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+  }
+
+  .page {
+    padding: 30px 5% 55px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .detail-info h2 {
+    font-size: 27px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <div class="logo">BIME</div>
-  <div class="subtitle">BOUTIQUE FEMININA</div>
+  <button class="header-link" onclick="goHome()">COLEÇÃO</button>
 </header>
 
-<nav>
-  <a href="#inicio">Início</a>
-  <a href="#catalogo">Coleção</a>
-  <a href="#contato">Contato</a>
-</nav>
+<main id="home">
+  <section class="hero">
+    <h1>Elegância em cada detalhe.</h1>
+  </section>
 
-<section class="hero" id="inicio">
-  <h1>Elegância em cada detalhe.</h1>
-  <p>Descubra uma nova forma de expressar seu estilo.</p>
-</section>
+  <section class="intro">
+    <h2>Explore a coleção</h2>
+    <p>Encontre peças que combinam com você.</p>
+  </section>
 
-<main class="catalogo" id="catalogo">
-  <h2>Nossa coleção</h2>
-
-  <div class="categorias">
-    <button onclick="filtrar('Todos')">Todos</button>
-    <button onclick="filtrar('Vestidos')">Vestidos</button>
-    <button onclick="filtrar('Blusas')">Blusas</button>
-    <button onclick="filtrar('Macacão')">Macacão</button>
-    <button onclick="filtrar('Shorts')">Shorts</button>
-    <button onclick="filtrar('Pijamas')">Pijamas</button>
-    <button onclick="filtrar('Saias')">Saias</button>
-  </div>
-
-  <div class="produtos" id="produtos"></div>
+  <section class="categories">
+    <button class="category" onclick="openCategory('Vestidos')">Vestidos</button>
+    <button class="category" onclick="openCategory('Blusas')">Blusas</button>
+    <button class="category" onclick="openCategory('Macacões')">Macacões</button>
+    <button class="category" onclick="openCategory('Shorts')">Shorts</button>
+    <button class="category" onclick="openCategory('Pijamas')">Pijamas</button>
+    <button class="category" onclick="openCategory('Saias')">Saias</button>
+  </section>
 </main>
 
-<section class="detalhes" id="detalhes">
-  <span class="voltar" onclick="voltar()">← Voltar à coleção</span>
-  <div id="produtoDetalhe"></div>
+<section id="categoryPage" class="page">
+  <button class="back" onclick="goHome()">← Voltar à coleção</button>
+
+  <div class="category-heading">
+    <h2 id="categoryTitle"></h2>
+    <p>Conheça nossa seleção.</p>
+  </div>
+
+  <div id="productGrid" class="products"></div>
 </section>
 
-<footer id="contato">
-  <h2>BIME</h2>
-  <p>Moda, delicadeza e personalidade.</p>
-  <p>© 2026 Bime Boutique</p>
+<section id="productPage" class="page">
+  <button class="back" onclick="backToCategory()">← Voltar à categoria</button>
+
+  <div class="product-detail">
+    <div class="detail-photo">Foto do produto</div>
+
+    <div class="detail-info">
+      <h2 id="detailName"></h2>
+      <div class="price" id="detailPrice"></div>
+      <p>Uma peça selecionada pela Bime para compor sua coleção.</p>
+      <p>Gostou? Faça sua reserva e entraremos em contato para confirmar a disponibilidade.</p>
+      <button class="reserve" onclick="reserveProduct()">RESERVAR PEÇA</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  BIME · MODA FEMININA
 </footer>
 
 <script>
-  const produtos = [
-    {nome:"Vestido Aurora", categoria:"Vestidos", preco:"R$ 289,90", imagem:"https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600"},
-    {nome:"Blusa Serena", categoria:"Blusas", preco:"R$ 149,90", imagem:"https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=600"},
-    {nome:"Calça Elegance", categoria:"Calças", preco:"R$ 219,90", imagem:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600"},
-    {nome:"Conjunto Amélie", categoria:"Conjuntos", preco:"R$ 329,90", imagem:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600"},
-    {nome:"Bolsa Celeste", categoria:"Bolsas", preco:"R$ 189,90", imagem:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"},
-    {nome:"Sandália Bella", categoria:"Calçados", preco:"R$ 179,90", imagem:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600"}
-  ];
+const products = [
+  {name:"Vestido Aurora", category:"Vestidos", price:"R$ 289,90"},
+  {name:"Vestido Serena", category:"Vestidos", price:"R$ 319,90"},
 
-  function mostrar(lista) {
-    document.getElementById("produtos").innerHTML = lista.map((p) => `
-      <article class="produto" onclick="abrir('${p.nome}')">
-        <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
-        <h3>${p.nome}</h3>
-        <p>${p.preco}</p>
-      </article>
-    `).join("");
+  {name:"Blusa Clara", category:"Blusas", price:"R$ 149,90"},
+  {name:"Blusa Amélia", category:"Blusas", price:"R$ 169,90"},
+
+  {name:"Macacão Lívia", category:"Macacões", price:"R$ 329,90"},
+  {name:"Macacão Elisa", category:"Macacões", price:"R$ 349,90"},
+
+  {name:"Shorts Brisa", category:"Shorts", price:"R$ 179,90"},
+  {name:"Shorts Alana", category:"Shorts", price:"R$ 189,90"},
+
+  {name:"Pijama Nuvem", category:"Pijamas", price:"R$ 219,90"},
+  {name:"Pijama Serena", category:"Pijamas", price:"R$ 239,90"},
+
+  {name:"Saia Elisa", category:"Saias", price:"R$ 199,90"},
+  {name:"Saia Aurora", category:"Saias", price:"R$ 229,90"}
+];
+
+let currentCategory = "";
+let currentProduct = null;
+
+function hidePages() {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("categoryPage").classList.remove("active");
+  document.getElementById("productPage").classList.remove("active");
+}
+
+function goHome() {
+  hidePages();
+  document.getElementById("home").style.display = "block";
+  currentCategory = "";
+  window.scrollTo(0, 0);
+}
+
+function openCategory(category) {
+  currentCategory = category;
+  hidePages();
+
+  document.getElementById("categoryTitle").textContent = category;
+
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = "";
+
+  const filtered = products.filter(p => p.category === category);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty">Novidades em breve.</div>';
   }
 
-  function filtrar(categoria) {
-    mostrar(categoria === "Todos" ? produtos :
-      produtos.filter(p => p.categoria === categoria));
-    document.getElementById("detalhes").style.display = "none";
-    document.querySelector(".catalogo").style.display = "block";
-  }
-
-  function abrir(nome) {
-    const p = produtos.find(item => item.nome === nome);
-    document.querySelector(".catalogo").style.display = "none";
-    document.getElementById("detalhes").style.display = "block";
-    document.getElementById("produtoDetalhe").innerHTML = `
-      <img src="${p.imagem}" alt="${p.nome}">
-      <h2>${p.nome}</h2>
-      <p>${p.preco}</p>
-      <p>Consulte disponibilidade e solicite sua reserva.</p>
-      <button class="reserva" onclick="reservar('${p.nome}')">
-        Reservar pelo WhatsApp
-      </button>
+  filtered.forEach(product => {
+    const card = document.createElement("article");
+    card.className = "product";
+    card.innerHTML = `
+      <div class="product-photo">BIME</div>
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <div class="price">${product.price}</div>
+      </div>
     `;
-    window.scrollTo(0,0);
+    card.onclick = () => openProduct(product);
+    grid.appendChild(card);
+  });
+
+  document.getElementById("categoryPage").classList.add("active");
+  window.scrollTo(0, 0);
+}
+
+function openProduct(product) {
+  currentProduct = product;
+  hidePages();
+
+  document.getElementById("detailName").textContent = product.name;
+  document.getElementById("detailPrice").textContent = product.price;
+
+  document.getElementById("productPage").classList.add("active");
+  window.scrollTo(0, 0);
+}
+
+function backToCategory() {
+  if (currentCategory) {
+    openCategory(currentCategory);
+  } else {
+    goHome();
+  }
+}
+
+function reserveProduct() {
+  const whatsappNumber = "";
+
+  if (!whatsappNumber) {
+    alert("O WhatsApp comercial da Bime será configurado em breve.");
+    return;
   }
 
-  function voltar() {
-    document.getElementById("detalhes").style.display = "none";
-    document.querySelector(".catalogo").style.display = "block";
-  }
+  const message = encodeURIComponent(
+    "Olá! Gostaria de reservar: " + currentProduct.name
+  );
 
-  function reservar(nome) {
-    const numero = "";
-    if (!numero) {
-      alert("O WhatsApp comercial da Bime ainda precisa ser configurado.");
-      return;
-    }
-    const mensagem = encodeURIComponent(
-      "Olá! Gostaria de solicitar a reserva de: " + nome
-    );
-    window.open("https://wa.me/" + numero + "?text=" + mensagem, "_blank");
-  }
-
-  mostrar(produtos);
+  window.open(
+    "https://wa.me/" + whatsappNumber + "?text=" + message,
+    "_blank"
+  );
+}
 </script>
 
 </body>
 </html>
+
 
