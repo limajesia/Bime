@@ -398,12 +398,18 @@ function openCategory(category) {
     const card = document.createElement("article");
     card.className = "product";
     card.innerHTML = `
-      <div class="product-photo">BIME</div>
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <div class="price">${product.price}</div>
-      </div>
-    `;
+    card.innerHTML = `
+  <img
+    class="product-photo"
+    src="${product.image || 'https://placehold.co/600x800/e2edf2/66899c?text=BIME'}"
+    alt="${product.name}"
+  >
+  <div class="product-info">
+    <h3>${product.name}</h3>
+    <div class="price">${product.price}</div>
+  </div>
+`;
+  
     card.onclick = () => openProduct(product);
     grid.appendChild(card);
   });
