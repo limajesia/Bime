@@ -391,7 +391,6 @@ function openCategory(category) {
     const card = document.createElement("article");
     card.className = "product";
     card.innerHTML = `
-    card.innerHTML = `
   <img
     class="product-photo"
     src="${product.image || 'https://placehold.co/600x800/e2edf2/66899c?text=BIME'}"
@@ -411,11 +410,13 @@ function openCategory(category) {
 }
 
 function openProduct(product) {
-  currentProduct = product;:document.getElementById("detailImage").src = product.image || "";
-  hidePages();
+  currentProduct = product;
 
+  document.getElementById("detailImage").src = product.image || "";
   document.getElementById("detailName").textContent = product.name;
   document.getElementById("detailPrice").textContent = product.price;
+
+  hidePages();
 
   document.getElementById("productPage").classList.add("active");
   window.scrollTo(0, 0);
