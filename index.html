@@ -167,13 +167,9 @@ footer {
 .product-photo {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: linear-gradient(145deg, #f1f6f8, #e2edf2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #91aab6;
-  font-family: Georgia, serif;
-  font-size: 17px;
+  object-fit: cover;
+  display: block;
+  background: #f1f6f8;
 }
 
 .product-info {
@@ -202,14 +198,11 @@ footer {
 }
 
 .detail-photo {
+  width: 100%;
   aspect-ratio: 3 / 4;
-  background: linear-gradient(145deg, #f1f6f8, #e2edf2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #91aab6;
-  font-family: Georgia, serif;
-  font-size: 20px;
+  object-fit: cover;
+  display: block;
+  background: #f1f6f8;
 }
 
 .detail-info h2 {
@@ -326,7 +319,7 @@ footer {
   <button class="back" onclick="backToCategory()">← Voltar à categoria</button>
 
   <div class="product-detail">
-    <div class="detail-photo">Foto do produto</div>
+    <img id="detailImage" class="detail-photo" src="" alt="Foto do produto">
 
     <div class="detail-info">
       <h2 id="detailName"></h2>
@@ -418,7 +411,7 @@ function openCategory(category) {
 }
 
 function openProduct(product) {
-  currentProduct = product;
+  currentProduct = product;:document.getElementById("detailImage").src = product.image || "";
   hidePages();
 
   document.getElementById("detailName").textContent = product.name;
