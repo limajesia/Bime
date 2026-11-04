@@ -476,8 +476,54 @@ function openProduct(product) {
   document.getElementById("detailName").textContent = product.name;
   document.getElementById("detailPrice").textContent = product.price;
 
-  hidePages();
+  // Mostrar cores
+  const colors = document.getElementById("detailColors");
+  colors.innerHTML = "";
 
+  (product.colors || []).forEach((color, index) => {
+    const button = document.createElement("button");
+    button.className = "color-option";
+    button.style.backgroundColor = color.code;
+    button.title = color.name;
+
+    if (index === 0) {
+      button.classList.add("selected");
+    }
+
+    button.onclick = () => {
+      colors.querySelectorAll(".color-option").forEach(b =>
+        b.classList.remove("selected")
+      );
+      button.classList.add("selected");
+    };
+
+    colors.appendChild(button);
+  });
+
+  // Mostrar tamanhos
+  const sizes = document.getElementById("detailSizes");
+  sizes.innerHTML = "";
+
+  (product.sizes || []).forEach((size, index) => {
+    const button = document.createElement("button");
+    button.className = "size-option";
+    button.textContent = size;
+
+    if (index === 0) {
+      button.classList.add("selected");
+    }
+
+    button.onclick = () => {
+      sizes.querySelectorAll(".size-option").forEach(b =>
+        b.classList.remove("selected")
+      );
+      button.classList.add("selected");
+    };
+
+    sizes.appendChild(button);
+  });
+
+  hidePages();
   document.getElementById("productPage").classList.add("active");
   window.scrollTo(0, 0);
 }
