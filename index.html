@@ -183,9 +183,50 @@ footer {
   margin-bottom: 7px;
 }
 
-.price {
-  font-size: 13px;
-  color: #718995;
+.product-options {
+  margin-top: 25px;
+}
+
+.product-options h3 {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 20px 0 12px;
+}
+
+.color-options,
+.size-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+}
+
+.color-option.selected {
+  outline: 2px solid #66899c;
+  outline-offset: 3px;
+}
+
+.size-option {
+  min-width: 42px;
+  padding: 10px;
+  border: 1px solid #dce5e9;
+  background: white;
+  color: #536f7e;
+  cursor: pointer;
+}
+
+.size-option.selected {
+  background: #dcecf4;
+  border-color: #66899c;
 }
 
 .product-detail {
